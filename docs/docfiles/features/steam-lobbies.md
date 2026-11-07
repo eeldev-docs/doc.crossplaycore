@@ -8,13 +8,13 @@ title: Steam lobbies
 With **Project Settings → Plugins → Crossplay → Lobbies → Lobby Service** set to **Platform Only**, or when EOS is not
 available, lobbies are Steam lobbies. The same nodes and events work:
 
-- Create, Find, Join and Leave Crossplay Lobby
+- CreateCrossplayLobby, FindCrossplayLobbies, JoinCrossplayLobby and LeaveCrossplayLobby
 - typed lobby and member attributes, and search filters
-- invites: **Send Crossplay Invite** with a Steam user, **On Invite Received**, **Show Invite Overlay**
+- invites: **SendCrossplayInvite** with a Steam user, **On Invite Received**, **Show Invite Overlay**
 - member joined and left events, and join requests from the Steam overlay
-- **Start Crossplay Match** over Steam P2P
+- **StartCrossplayMatch** over Steam P2P
 
-**Join Crossplay Lobby** recognizes Steam lobby ids, so a Steam lobby invite can be joined even when new lobbies are
+**JoinCrossplayLobby** recognizes Steam lobby ids, so a Steam lobby invite can be joined even when new lobbies are
 created in EOS.
 
 Steam lobbies do not need EOS. They keep working when the EOS login fails, see
@@ -32,7 +32,7 @@ Steam lobbies do not need EOS. They keep working when the EOS login fails, see
 
 ## Matches over Steam P2P
 
-In Steam lobbies, **Start Crossplay Match** runs over Steam P2P instead of EOS P2P.
+In Steam lobbies, **StartCrossplayMatch** runs over Steam P2P instead of EOS P2P.
 
 1. Use [SteamCore PRO](../getting_started/steam-setup#with-steamcore-pro-recommended), or enable the engine's
    **SteamSockets** plugin with OnlineSubsystemSteam.
@@ -52,6 +52,6 @@ bAllowP2PPacketRelay=True
 IP addresses. Without them the match can't start.
 
 Neither runs in the editor, so test Steam matches in standalone or packaged builds.
-**Start Crossplay Match** gives **Not Supported** when neither is available.
+**StartCrossplayMatch** gives **Not Supported** when neither is available.
 
 Matches over Steam P2P also work on Linux, where [matches over EOS P2P](match#linux) don't.

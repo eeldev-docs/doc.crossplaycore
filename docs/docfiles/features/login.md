@@ -74,8 +74,8 @@ A game that does not use Epic friends or Epic presence can turn off **Request Fr
 **Request Presence Scope** under **Project Settings → Plugins → Crossplay - Epic Online Services → Epic Account**. The
 login then only asks for the scopes that are left on, and the client policy only needs those.
 
-- With Friends off, **Query Crossplay Friends** returns **Not Supported** for Epic accounts.
-- With Presence off, **Set Crossplay Presence** returns **Not Supported**, friends come without presence, and lobbies
+- With Friends off, **QueryCrossplayFriends** returns **Not Supported** for Epic accounts.
+- With Presence off, **SetCrossplayPresence** returns **Not Supported**, friends come without presence, and lobbies
   are not tied to the Epic presence.
 
 If the Epic login page says the client is not allowed a scope (for example `friends_list`), either allow it in the

@@ -8,14 +8,14 @@ title: Invites and join requests
 There are two ways a player ends up in a friend's lobby:
 
 - An **invite** arrives in the game. You show it in your UI, and the player accepts it with
-  **Join Crossplay Lobby**.
+  **JoinCrossplayLobby**.
 - A **join request** means the player has already chosen to join from outside the game, in the Steam overlay or the
   EOS overlay. The plugin joins the lobby by itself.
 
 ## In-game invites (EOS)
 
-**Send Crossplay Invite** with the friend's **Crossplay User Id** invites them to the current lobby. The friend gets
-**On Invite Received** with the **Lobby Id** and the sender, shows it, and calls **Join Crossplay Lobby** to accept.
+**SendCrossplayInvite** with the friend's **Crossplay User Id** invites them to the current lobby. The friend gets
+**On Invite Received** with the **Lobby Id** and the sender, shows it, and calls **JoinCrossplayLobby** to accept.
 This works for Invite Only lobbies too.
 
 - **Invites sent while the friend was offline** arrive right after their next login, but only if the lobby still
@@ -24,12 +24,12 @@ This works for Invite Only lobbies too.
 
 ### Inviting by Steam or Epic account
 
-**Send Crossplay Invite** also accepts a user with only a Steam or Epic account id, made with
+**SendCrossplayInvite** also accepts a user with only a Steam or Epic account id, made with
 **Make Platform User Id**. The plugin looks up the Product User Id first. A player who has never logged in to the game
 with crossplay gives **Not Found**: use **Show Invite Overlay** for them instead.
 
-**Query Crossplay Friends** already fills in the Product User Id of every friend who plays, so the friends it returns
-can be passed straight to **Send Crossplay Invite**. See [Friends and presence](friends-and-presence).
+**QueryCrossplayFriends** already fills in the Product User Id of every friend who plays, so the friends it returns
+can be passed straight to **SendCrossplayInvite**. See [Friends and presence](friends-and-presence).
 
 ## Steam overlay invites
 
@@ -37,7 +37,7 @@ can be passed straight to **Send Crossplay Invite**. See [Friends and presence](
 carries a connect string (`+crossplay_lobby <id>`), so Steam friends who accept land in **On Join Requested** with the
 EOS lobby. It returns false when the player is not in a lobby or Steam is not running.
 
-For Steam lobbies, **Send Crossplay Invite** with a Steam user sends a Steam lobby invite, which arrives as
+For Steam lobbies, **SendCrossplayInvite** with a Steam user sends a Steam lobby invite, which arrives as
 **On Invite Received**.
 
 ## Steam friends list
@@ -62,7 +62,7 @@ current lobby and joins the new one. If the join fails, for example because the 
 Failed** fires with the reason.
 
 Turn off **Project Settings → Plugins → Crossplay → Lobbies → Auto Accept Join Requests** to call
-**Join Crossplay Lobby** yourself from **On Join Requested**.
+**JoinCrossplayLobby** yourself from **On Join Requested**.
 
 ## Starting the game from an invite
 

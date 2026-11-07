@@ -5,12 +5,12 @@ title: Matches
 
 # Starting a match
 
-A lobby is where players meet. **Start Crossplay Match** takes them from the lobby into a networked game: the owner
+A lobby is where players meet. **StartCrossplayMatch** takes them from the lobby into a networked game: the owner
 hosts a listen server over P2P, and the other members travel to it.
 
-## Start Crossplay Match
+## StartCrossplayMatch
 
-1. The lobby owner calls **Start Crossplay Match** with a map. An empty map means the current map. The map opens as a
+1. The lobby owner calls **StartCrossplayMatch** with a map. An empty map means the current map. The map opens as a
    listen server on EOS P2P, and the owner's address is written to the lobby (**Match Address**).
 2. The other members get **On Match Starting** with the **Lobby Id** and the address, and travel to the owner by
    themselves. Members who are already in a networked game (playing or hosting) are left where they are and get no
@@ -19,7 +19,7 @@ hosts a listen server over P2P, and the other members travel to it.
 Only the owner can start the match. Others get **Invalid Parameters**.
 
 :::caution
-The result of **Start Crossplay Match** arrives after the map change. Handle it in the GameInstance, or bind to the
+The result of **StartCrossplayMatch** arrives after the map change. Handle it in the GameInstance, or bind to the
 subsystem's events, not in a level Blueprint that is gone after the map change.
 :::
 
@@ -50,12 +50,12 @@ same network ([host migration](host-migration)).
   OnlineSubsystemEOS. See [Where the EOS platform comes from](../getting_started/eos-setup#where-the-eos-platform-comes-from).
 - In [Steam lobbies](steam-lobbies#matches-over-steam-p2p) the match runs over Steam P2P instead.
 
-When P2P is not available for the lobby, **Start Crossplay Match** fails with **Not Supported**.
+When P2P is not available for the lobby, **StartCrossplayMatch** fails with **Not Supported**.
 
 ## Linux
 
 The engine has no EOS P2P socket subsystem (`SocketSubsystemEOS`) for Linux, so matches over EOS P2P don't work
-there. On Linux, **Start Crossplay Match** in an EOS lobby fails with **Not Supported**, and a Linux player can't
+there. On Linux, **StartCrossplayMatch** in an EOS lobby fails with **Not Supported**, and a Linux player can't
 join a match over EOS P2P that a Windows or Mac player hosts.
 
 Login, EOS lobbies, friends, presence, invites and voice chat work on Linux. For matches on Linux, use

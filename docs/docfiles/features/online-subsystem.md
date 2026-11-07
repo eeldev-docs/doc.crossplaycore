@@ -25,7 +25,7 @@ default Online Subsystem. The native service (Steam) is loaded next to it.
 ## Hosting and joining
 
 - **Host:** **Create Session**, then **Open Level** with `?listen`. The match address is written to the lobby when
-  the map opens, so **Start Crossplay Match** is not needed.
+  the map opens, so **StartCrossplayMatch** is not needed.
 - **Client:** **Find Sessions**, then **Join Session**. The node travels to the host over EOS P2P.
 
 ## How sessions map to lobbies

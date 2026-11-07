@@ -16,9 +16,9 @@ Lobbies and members carry typed attributes (**Crossplay Attribute**):
 
 ## Setting attributes
 
-- In **Create Crossplay Lobby**, put them in the settings' **Attributes** map.
-- **Set Crossplay Lobby Attributes** changes lobby attributes.
-- **Set Crossplay Member Attributes** changes the local player's member attributes, for example `ready` or `team`.
+- In **CreateCrossplayLobby**, put them in the settings' **Attributes** map.
+- **SetCrossplayLobbyAttributes** changes lobby attributes.
+- **SetCrossplayMemberAttributes** changes the local player's member attributes, for example `ready` or `team`.
 
 Plug a value into a **Crossplay Attribute** pin and it converts automatically, or use
 **Make Crossplay Attribute (String / Integer / Integer64 / Float / Boolean)**. Integer and Integer64 are both stored
@@ -41,7 +41,7 @@ Filters compare with the attribute's type, so **Greater** and **Less** work on n
 attribute of the same type: a lobby that stores `skill` as an Integer is not found by a String filter on `skill`.
 
 ```text
-Find Crossplay Lobbies
+FindCrossplayLobbies
   Bucket:  ranked
   Filters: mode  Equal          "deathmatch"   (String)
            skill GreaterOrEqual 1000           (Int)

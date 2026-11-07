@@ -10,7 +10,7 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 
 ## Create
 
-**Create Crossplay Lobby** creates a lobby and makes the player its owner.
+**CreateCrossplayLobby** creates a lobby and makes the player its owner.
 
 | Setting | Default | Description |
 |---|---|---|
@@ -27,7 +27,7 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 
 ## Find
 
-**Find Crossplay Lobbies** searches with a **Crossplay Lobby Search**:
+**FindCrossplayLobbies** searches with a **Crossplay Lobby Search**:
 
 | Field | Default | Description |
 |---|---|---|
@@ -37,9 +37,9 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 
 ## Join and leave
 
-- **Join Crossplay Lobby** joins by **Lobby Id**, from a search result, an invite or a join request. It recognizes
+- **JoinCrossplayLobby** joins by **Lobby Id**, from a search result, an invite or a join request. It recognizes
   Steam lobby ids, so a Steam invite can be joined even when new lobbies are created in EOS.
-- **Leave Crossplay Lobby** leaves the current lobby. When the owner leaves, EOS gives the lobby to another member.
+- **LeaveCrossplayLobby** leaves the current lobby. When the owner leaves, EOS gives the lobby to another member.
 
 A player is in one lobby at a time. **Create** and **Join** fail with **Invalid Parameters** ("Already in a lobby,
 leave it first") while the player is in a lobby. A full lobby gives **Lobby Full**.

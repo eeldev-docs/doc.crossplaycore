@@ -24,8 +24,8 @@ See [How it works](../getting_started/how-it-works).
 
 | Setting | Default | Description |
 |---|---|---|
-| Lobby Service | `Auto` | Which lobbies Create and Find Crossplay Lobbies use. `Auto`: EOS lobbies when logged in to EOS, otherwise Steam lobbies. `Crossplay`: only EOS lobbies, so players on every platform meet. `Platform Only`: only Steam lobbies, so only Steam players meet, and there is no lobby voice chat. It does not change the login: the backends decide that. |
-| Auto Accept Join Requests | On | Join the lobby by itself on a [join request](../features/invites#join-requests). Turn off to call **Join Crossplay Lobby** yourself. |
+| Lobby Service | `Auto` | Which lobbies CreateCrossplayLobby and FindCrossplayLobbies use. `Auto`: EOS lobbies when logged in to EOS, otherwise Steam lobbies. `Crossplay`: only EOS lobbies, so players on every platform meet. `Platform Only`: only Steam lobbies, so only Steam players meet, and there is no lobby voice chat. It does not change the login: the backends decide that. |
+| Auto Accept Join Requests | On | Join the lobby by itself on a [join request](../features/invites#join-requests). Turn off to call **JoinCrossplayLobby** yourself. |
 
 ### Match
 

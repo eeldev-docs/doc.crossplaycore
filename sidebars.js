@@ -43,6 +43,10 @@ const sidebars = {
     },
     {
       type: 'doc',
+      id: 'example-project'
+    },
+    {
+      type: 'doc',
       id: 'faq'
     },
     {

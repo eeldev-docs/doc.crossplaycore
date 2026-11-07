@@ -16,7 +16,7 @@ It is a separate plugin that needs both CrossplayCore and HostMigrationCore, so 
 1. Enable **CrossplayCore - Host Migration** and **HostMigrationCore**.
 2. Set **Project Settings → Plugins → Host Migration → Adapter Class** to **Crossplay Lobby**. With
    `DefaultPlatformService=Crossplay`, an empty Adapter Class picks it too.
-3. Start matches with **Start Crossplay Match** (or [Create Session](online-subsystem)) as usual.
+3. Start matches with **StartCrossplayMatch** (or [Create Session](online-subsystem)) as usual.
 
 :::caution
 Don't use HostMigrationCore's Steam or EOS adapter with CrossplayCore. They expect Steam or EOS player ids, while the

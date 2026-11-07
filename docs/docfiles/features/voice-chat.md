@@ -16,7 +16,7 @@ When the current lobby has Voice Chat, the EOS room is used and match VoIP is ke
 
 ## EOS lobbies
 
-Tick **Voice Chat** in the lobby settings of **Create Crossplay Lobby**. Every member joins the voice room with the
+Tick **Voice Chat** in the lobby settings of **CreateCrossplayLobby**. Every member joins the voice room with the
 lobby and leaves it with the lobby. The room does not go through the match host, so voice keeps working when the
 match starts and when the host changes. Steam players talk too, since they are logged in to EOS.
 
@@ -53,17 +53,17 @@ match voice still works. See [When the EOS login fails](login#when-the-eos-login
 
 | Node | EOS lobby | Match |
 |---|---|---|
-| **Set Crossplay Voice Input Muted** | Yes | Yes |
-| **Set Crossplay Voice Member Muted** | Yes | Yes |
-| **Set Crossplay Voice Member Volume** | Yes | Not Supported |
-| **Set Crossplay Voice Output Volume** | Yes | Not Supported |
-| **Query Crossplay Audio Devices** | Yes | Not Supported |
-| **Set Crossplay Audio Input Device** / **Output Device** | Yes | Not Supported |
+| **SetCrossplayVoiceInputMuted** | Yes | Yes |
+| **SetCrossplayVoiceMemberMuted** | Yes | Yes |
+| **SetCrossplayVoiceMemberVolume** | Yes | Not Supported |
+| **SetCrossplayVoiceOutputVolume** | Yes | Not Supported |
+| **QueryCrossplayAudioDevices** | Yes | Not Supported |
+| **SetCrossplayAudioInputDevice** / **SetCrossplayAudioOutputDevice** | Yes | Not Supported |
 
-- **Set Crossplay Voice Input Muted** mutes the microphone. It also works before joining a lobby, so it can drive
+- **SetCrossplayVoiceInputMuted** mutes the microphone. It also works before joining a lobby, so it can drive
   push-to-talk. **Project Settings → Plugins → Crossplay → Voice → Voice Input Starts Muted** starts every room
   muted.
-- **Set Crossplay Voice Member Muted** and **Set Crossplay Voice Member Volume** only change what the local player
+- **SetCrossplayVoiceMemberMuted** and **SetCrossplayVoiceMemberVolume** only change what the local player
   hears. Volumes are scales: 1 is unchanged, 0 is silent, 2 is twice as loud.
 - An empty device id is the system default.
 

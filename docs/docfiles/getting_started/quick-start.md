@@ -5,6 +5,11 @@ title: Quick Start
 
 # Quick Start
 
+:::tip Example project
+See every step below in a working game in the [example project](../../example-project), or try the playable build
+first.
+:::
+
 All nodes are in the **Crossplay** category. The latent nodes have an **On Success** and an **On Failure** pin, and
 return a **Crossplay Error** with a **Result** and a **Message**.
 
@@ -24,7 +29,7 @@ ways players can log in.
 
 ## 2. Create a lobby
 
-The host calls **Create Crossplay Lobby** with a **Crossplay Lobby Settings**:
+The host calls **CreateCrossplayLobby** with a **Crossplay Lobby Settings**:
 
 | Field | Example |
 |---|---|
@@ -35,12 +40,12 @@ The host calls **Create Crossplay Lobby** with a **Crossplay Lobby Settings**:
 
 ## 3. Find and join it
 
-Other players call **Find Crossplay Lobbies** with the same **Bucket**, optionally with filters, and
-**Join Crossplay Lobby** with the **Lobby Id** of a result.
+Other players call **FindCrossplayLobbies** with the same **Bucket**, optionally with filters, and
+**JoinCrossplayLobby** with the **Lobby Id** of a result.
 
 ```text
-Find Crossplay Lobbies  (Bucket: default, Filters: mode == "deathmatch")
-  On Success ──► For Each Lobbies ──► Join Crossplay Lobby (Lobby Id)
+FindCrossplayLobbies  (Bucket: default, Filters: mode == "deathmatch")
+  On Success ──► For Each Lobbies ──► JoinCrossplayLobby (Lobby Id)
 ```
 
 Bind **On Lobby Member Joined**, **On Lobby Member Left** and **On Lobby Updated** on the **Crossplay Subsystem** to
@@ -48,13 +53,13 @@ keep your lobby UI up to date.
 
 ## 4. Start the match
 
-When everyone is ready, the lobby owner calls **Start Crossplay Match** with a map. The map opens as a listen server
+When everyone is ready, the lobby owner calls **StartCrossplayMatch** with a map. The map opens as a listen server
 over EOS P2P, and the other members travel to it by themselves. See [Matches](../features/match).
 
 ## 5. Invite friends
 
-- **Query Crossplay Friends** gives the friends list. Friends with a Product User Id can be invited with
-  **Send Crossplay Invite**.
+- **QueryCrossplayFriends** gives the friends list. Friends with a Product User Id can be invited with
+  **SendCrossplayInvite**.
 - **Show Invite Overlay** opens the Steam invite dialog for the current lobby.
 
 See [Invites and join requests](../features/invites).

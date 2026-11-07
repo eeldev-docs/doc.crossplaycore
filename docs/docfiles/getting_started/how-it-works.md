@@ -44,7 +44,7 @@ changes and needs no setup. It logs in to both backends and sends each call to t
 | **Crossplay** | Always EOS. Lobby calls fail when crossplay is not active. |
 | **Platform Only** | Always Steam lobbies. See [Steam lobbies](../features/steam-lobbies). |
 
-**Join Crossplay Lobby** recognizes Steam lobby ids whatever the setting, so a Steam invite can always be joined.
+**JoinCrossplayLobby** recognizes Steam lobby ids whatever the setting, so a Steam invite can always be joined.
 
 ## Crossplay User Id
 
