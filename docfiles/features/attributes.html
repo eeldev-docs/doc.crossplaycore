@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Attributes | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/attributes"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Attributes | CrossplayCore Documentation"><meta data-rh="true" name="description" content="Lobbies and members carry typed attributes (Crossplay Attribute):"><meta data-rh="true" property="og:description" content="Lobbies and members carry typed attributes (Crossplay Attribute):"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/attributes"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/attributes" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/attributes" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Attributes","item":"https://crossplaycore.eeldev.com/docfiles/features/attributes"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.96d21d13.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cb5dcb1b.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -41,10 +41,13 @@
 <p>Plug a value into a <strong>Crossplay Attribute</strong> pin and it converts automatically, or use
 <strong>Make Crossplay Attribute (String / Integer / Integer64 / Float / Boolean)</strong>. Integer and Integer64 are both stored
 as 64-bit integers.</p>
+<p><img decoding="async" loading="lazy" alt="Lobby attributes in CreateCrossplayLobby" src="/assets/images/02-host-lobby-d22f2d77931b4b9347b7874933d0af67.webp" width="2000" height="859" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-attributes">Reading attributes<a href="#reading-attributes" class="hash-link" aria-label="Direct link to Reading attributes" title="Direct link to Reading attributes" translate="no">​</a></h2>
 <p><strong>Get Lobby Attribute</strong> and <strong>Get Member Attribute</strong> return the attribute and whether it was found. Convert it with
 <strong>To String</strong>, <strong>To Integer</strong>, <strong>To Integer64</strong>, <strong>To Float</strong> or <strong>To Boolean</strong> (Crossplay Attribute). <strong>Equal
 (Crossplay Attribute)</strong> compares two attributes.</p>
+<p>This graph prints the <code>ready</code> attribute of every member:</p>
+<p><img decoding="async" loading="lazy" alt="GetMemberAttribute graph" src="/assets/images/read-member-attributes-f05516913a2c0fd8bc9deb539315f1ab.webp" width="2000" height="631" class="img_ev3q"></p>
 <p>Other players see the change in <strong>On Lobby Updated</strong>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="search-filters">Search filters<a href="#search-filters" class="hash-link" aria-label="Direct link to Search filters" title="Direct link to Search filters" translate="no">​</a></h2>
 <p>A <strong>Crossplay Search Filter</strong> has a <strong>Key</strong>, a <strong>Value</strong> and a <strong>Comparison</strong>: <strong>Equal</strong>, <strong>Not Equal</strong>, <strong>Greater</strong>,

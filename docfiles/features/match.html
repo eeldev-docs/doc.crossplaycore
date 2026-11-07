@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Matches | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/match"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Matches | CrossplayCore Documentation"><meta data-rh="true" name="description" content="A lobby is where players meet. StartCrossplayMatch takes them from the lobby into a networked game: the owner"><meta data-rh="true" property="og:description" content="A lobby is where players meet. StartCrossplayMatch takes them from the lobby into a networked game: the owner"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/match"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/match" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/match" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Matches","item":"https://crossplaycore.eeldev.com/docfiles/features/match"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.96d21d13.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cb5dcb1b.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -41,12 +41,15 @@ themselves. Members who are already in a networked game (playing or hosting) are
 event.</li>
 </ol>
 <p>Only the owner can start the match. Others get <strong>Invalid Parameters</strong>.</p>
+<p>See <a class="" href="/docfiles/blueprint_tutorials/ready-and-start-match">Tutorial 5</a> for the graph step by step.</p>
+<p><img decoding="async" loading="lazy" alt="StartCrossplayMatch graph" src="/assets/images/05-ready-and-start-match-31d4bb2c3e40074ff4e02a82b4d61134.webp" width="2000" height="1150" class="img_ev3q"></p>
 <div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div><div class="admonitionContent_BuS1"><p>The result of <strong>StartCrossplayMatch</strong> arrives after the map change. Handle it in the GameInstance, or bind to the
 subsystem&#x27;s events, not in a level Blueprint that is gone after the map change.</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="joining-yourself">Joining yourself<a href="#joining-yourself" class="hash-link" aria-label="Direct link to Joining yourself" title="Direct link to Joining yourself" translate="no">​</a></h2>
 <p>Turn off <strong>Project Settings → Plugins → Crossplay → Match → Auto Join Match</strong> to decide when members travel. Then
 call <strong>Join Match</strong> on the subsystem from <strong>On Match Starting</strong>, for example after a countdown. It returns false when
 the lobby has no match.</p>
+<p><img decoding="async" loading="lazy" alt="On Match Starting, Delay and Join Match graph" src="/assets/images/manual-match-join-8c889418c8b4de47d67b59a5e2ca7364.webp" width="2000" height="893" class="img_ev3q"></p>
 <p>Players who join the lobby after the match has started travel to it as well (or get <strong>On Match Starting</strong> when Auto
 Join Match is off).</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-ports-no-config">No ports, no config<a href="#no-ports-no-config" class="hash-link" aria-label="Direct link to No ports, no config" title="Direct link to No ports, no config" translate="no">​</a></h2>

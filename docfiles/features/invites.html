@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Invites and join requests | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/invites"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Invites and join requests | CrossplayCore Documentation"><meta data-rh="true" name="description" content="There are two ways a player ends up in a friend&#x27;s lobby:"><meta data-rh="true" property="og:description" content="There are two ways a player ends up in a friend&#x27;s lobby:"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/invites"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/invites" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/invites" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Invites and join requests","item":"https://crossplaycore.eeldev.com/docfiles/features/invites"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.96d21d13.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cb5dcb1b.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -41,6 +41,7 @@ EOS overlay. The plugin joins the lobby by itself.</li>
 <p><strong>SendCrossplayInvite</strong> with the friend&#x27;s <strong>Crossplay User Id</strong> invites them to the current lobby. The friend gets
 <strong>On Invite Received</strong> with the <strong>Lobby Id</strong> and the sender, shows it, and calls <strong>JoinCrossplayLobby</strong> to accept.
 This works for Invite Only lobbies too.</p>
+<p><img decoding="async" loading="lazy" alt="On Invite Received and JoinCrossplayLobby graph" src="/assets/images/accept-invite-c9c108d557ae99f13ed3c6b94703eb51.webp" width="2000" height="996" class="img_ev3q"></p>
 <ul>
 <li class=""><strong>Invites sent while the friend was offline</strong> arrive right after their next login, but only if the lobby still
 exists. Old ones are rejected. The sender of such an invite is the lobby owner.</li>
@@ -52,6 +53,7 @@ exists. Old ones are rejected. The sender of such an invite is the lobby owner.<
 with crossplay gives <strong>Not Found</strong>: use <strong>Show Invite Overlay</strong> for them instead.</p>
 <p><strong>QueryCrossplayFriends</strong> already fills in the Product User Id of every friend who plays, so the friends it returns
 can be passed straight to <strong>SendCrossplayInvite</strong>. See <a class="" href="/docfiles/features/friends-and-presence">Friends and presence</a>.</p>
+<p><img decoding="async" loading="lazy" alt="QueryCrossplayFriends and SendCrossplayInvite graph" src="/assets/images/invite-friends-89fb4be2c7ba9d74b894eddac7238740.webp" width="2000" height="683" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="steam-overlay-invites">Steam overlay invites<a href="#steam-overlay-invites" class="hash-link" aria-label="Direct link to Steam overlay invites" title="Direct link to Steam overlay invites" translate="no">​</a></h2>
 <p><strong>Show Invite Overlay</strong> opens the Steam invite dialog for the current lobby. It works for EOS lobbies too: the invite
 carries a connect string (<code>+crossplay_lobby &lt;id&gt;</code>), so Steam friends who accept land in <strong>On Join Requested</strong> with the

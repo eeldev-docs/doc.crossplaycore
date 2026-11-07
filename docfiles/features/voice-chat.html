@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Voice chat | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/voice-chat"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Voice chat | CrossplayCore Documentation"><meta data-rh="true" name="description" content="The same voice nodes work in two ways:"><meta data-rh="true" property="og:description" content="The same voice nodes work in two ways:"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/voice-chat"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/voice-chat" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/voice-chat" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Voice chat","item":"https://crossplaycore.eeldev.com/docfiles/features/voice-chat"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.96d21d13.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cb5dcb1b.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -72,6 +72,11 @@ state.</li>
 only known for the local player.</li>
 <li class=""><strong>On Audio Devices Changed</strong>: a microphone or speaker was added or removed (EOS only).</li>
 </ul>
+<p>Push-to-talk: call <strong>SetCrossplayVoiceInputMuted</strong> with <strong>Muted</strong> off when the talk key is pressed, and on when it
+is released.</p>
+<p><img decoding="async" loading="lazy" alt="Push-to-talk graph" src="/assets/images/push-to-talk-dfffe089b49c72bcfa20e1af22f0fe3d.png" width="984" height="680" class="img_ev3q"></p>
+<p>A speaking indicator: bind <strong>On Voice Member Updated</strong> once and show who is speaking.</p>
+<p><img decoding="async" loading="lazy" alt="On Voice Member Updated graph" src="/assets/images/voice-speaking-c7e255465515cfff7438f416eab024c6.png" width="960" height="240" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing">Testing<a href="#testing" class="hash-link" aria-label="Direct link to Testing" title="Direct link to Testing" translate="no">​</a></h2>
 <p>Voice needs two computers with a microphone each. Log lines like <code>No Audio Capture implementations found</code> and
 <code>StartLocalProcessing returned 0xFFFFFFFF</code> before the match has started are harmless. In a match, the log shows
