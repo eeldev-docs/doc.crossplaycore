@@ -18,6 +18,8 @@ There are two ways a player ends up in a friend's lobby:
 **On Invite Received** with the **Lobby Id** and the sender, shows it, and calls **JoinCrossplayLobby** to accept.
 This works for Invite Only lobbies too.
 
+![On Invite Received and JoinCrossplayLobby graph](/img/docs/accept-invite.webp)
+
 - **Invites sent while the friend was offline** arrive right after their next login, but only if the lobby still
   exists. Old ones are rejected. The sender of such an invite is the lobby owner.
 - Joining a lobby removes the invites to it.
@@ -30,6 +32,8 @@ with crossplay gives **Not Found**: use **Show Invite Overlay** for them instead
 
 **QueryCrossplayFriends** already fills in the Product User Id of every friend who plays, so the friends it returns
 can be passed straight to **SendCrossplayInvite**. See [Friends and presence](friends-and-presence).
+
+![QueryCrossplayFriends and SendCrossplayInvite graph](/img/docs/invite-friends.webp)
 
 ## Steam overlay invites
 

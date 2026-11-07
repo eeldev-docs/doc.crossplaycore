@@ -19,6 +19,8 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 | Bucket | `default` | Searches only find lobbies in the same bucket. Use it for game mode, region or build version. |
 | Attributes | Empty | Typed lobby attributes. See [Attributes](attributes). |
 
+![CreateCrossplayLobby graph](/img/tutorials/02-host-lobby.webp)
+
 | Visibility | EOS | Steam |
 |---|---|---|
 | **Public** | Found by searches | Public lobby |
@@ -34,6 +36,8 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 | Bucket | `default` | The bucket to search in. |
 | Filters | Empty | Typed filters, for example `skill >= 1000`. See [Search filters](attributes#search-filters). |
 | Max Results | `20` | 1 to 200. |
+
+![FindCrossplayLobbies and JoinCrossplayLobby graph](/img/tutorials/03-find-and-join.webp)
 
 ## Join and leave
 
@@ -69,3 +73,5 @@ Bind these on the **Crossplay Subsystem**:
 | **On Lobby Left** | The player is no longer in the lobby: they left, were kicked or the lobby was closed. |
 
 A member who leaves before **On Lobby Member Joined** fired gives neither event.
+
+![Lobby events graph](/img/tutorials/04-lobby-events.png)

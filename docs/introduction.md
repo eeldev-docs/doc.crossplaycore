@@ -23,10 +23,6 @@ Player Data Storage and more on the same login. See [Steam setup](docfiles/getti
 [EOS setup](docfiles/getting_started/eos-setup).
 :::
 
-:::info Beta
-CrossplayCore is in beta (version 0.1.0). The API can still change between versions.
-:::
-
 :::tip
 New to the plugin? Start with [Installing the plugin](docfiles/getting_started/installing-plugin), set up
 [EOS](docfiles/getting_started/eos-setup) and [Steam](docfiles/getting_started/steam-setup), then follow the

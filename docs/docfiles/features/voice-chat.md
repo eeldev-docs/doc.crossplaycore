@@ -75,6 +75,15 @@ match voice still works. See [When the EOS login fails](login#when-the-eos-login
   only known for the local player.
 - **On Audio Devices Changed**: a microphone or speaker was added or removed (EOS only).
 
+Push-to-talk: call **SetCrossplayVoiceInputMuted** with **Muted** off when the talk key is pressed, and on when it
+is released.
+
+![Push-to-talk graph](/img/docs/push-to-talk.png)
+
+A speaking indicator: bind **On Voice Member Updated** once and show who is speaking.
+
+![On Voice Member Updated graph](/img/docs/voice-speaking.png)
+
 ## Testing
 
 Voice needs two computers with a microphone each. Log lines like `No Audio Capture implementations found` and

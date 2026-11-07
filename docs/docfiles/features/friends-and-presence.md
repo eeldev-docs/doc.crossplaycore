@@ -21,6 +21,10 @@ played the game with crossplay; invite them with **Show Invite Overlay**. See [I
 
 If looking up the Product User Ids fails, the friends list is still returned, without them.
 
+This graph invites every friend who is playing the game:
+
+![QueryCrossplayFriends and SendCrossplayInvite graph](/img/docs/invite-friends.webp)
+
 ### Steam or Epic friends
 
 | Player logged in with | Friends |
@@ -32,6 +36,8 @@ If looking up the Product User Ids fails, the friends list is still returned, wi
 ## SetCrossplayPresence
 
 **SetCrossplayPresence** sets the player's status text, for example `In the lobby` or `Playing Deathmatch`.
+
+![SetCrossplayPresence graph](/img/docs/set-presence.png)
 
 - **Steam:** the `status` rich presence key.
 - **Epic account:** EOS presence with status Online and the text as rich text (at most 255 bytes).

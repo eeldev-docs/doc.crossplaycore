@@ -9,6 +9,8 @@ title: Login
 once per game session. Calling it while a login is running waits for that login, and calling it when logged in
 returns at once.
 
+![Crossplay Login graph](/img/tutorials/01-login.png)
+
 ## Which login is used
 
 The plugin picks the first login that applies:

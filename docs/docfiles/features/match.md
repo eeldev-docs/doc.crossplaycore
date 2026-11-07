@@ -18,6 +18,10 @@ hosts a listen server over P2P, and the other members travel to it.
 
 Only the owner can start the match. Others get **Invalid Parameters**.
 
+See [Tutorial 5](../blueprint_tutorials/ready-and-start-match) for the graph step by step.
+
+![StartCrossplayMatch graph](/img/tutorials/05-ready-and-start-match.webp)
+
 :::caution
 The result of **StartCrossplayMatch** arrives after the map change. Handle it in the GameInstance, or bind to the
 subsystem's events, not in a level Blueprint that is gone after the map change.
@@ -28,6 +32,8 @@ subsystem's events, not in a level Blueprint that is gone after the map change.
 Turn off **Project Settings → Plugins → Crossplay → Match → Auto Join Match** to decide when members travel. Then
 call **Join Match** on the subsystem from **On Match Starting**, for example after a countdown. It returns false when
 the lobby has no match.
+
+![On Match Starting, Delay and Join Match graph](/img/docs/manual-match-join.webp)
 
 Players who join the lobby after the match has started travel to it as well (or get **On Match Starting** when Auto
 Join Match is off).

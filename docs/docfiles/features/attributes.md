@@ -24,11 +24,17 @@ Plug a value into a **Crossplay Attribute** pin and it converts automatically, o
 **Make Crossplay Attribute (String / Integer / Integer64 / Float / Boolean)**. Integer and Integer64 are both stored
 as 64-bit integers.
 
+![Lobby attributes in CreateCrossplayLobby](/img/tutorials/02-host-lobby.webp)
+
 ## Reading attributes
 
 **Get Lobby Attribute** and **Get Member Attribute** return the attribute and whether it was found. Convert it with
 **To String**, **To Integer**, **To Integer64**, **To Float** or **To Boolean** (Crossplay Attribute). **Equal
 (Crossplay Attribute)** compares two attributes.
+
+This graph prints the `ready` attribute of every member:
+
+![GetMemberAttribute graph](/img/docs/read-member-attributes.webp)
 
 Other players see the change in **On Lobby Updated**.
 
