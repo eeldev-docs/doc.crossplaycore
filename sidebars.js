@@ -17,7 +17,6 @@ const productSwitcher = `
     <a class="eel-product-switcher__item" href="https://foliageplugin.eeldev.com">Foliage Plugin</a>
     <a class="eel-product-switcher__item" href="https://hostmigrationcore.eeldev.com">HostMigrationCore</a>
     <a class="eel-product-switcher__item" href="https://serveradmincore.eeldev.com">Server Admin Core</a>
-    <a class="eel-product-switcher__item" href="https://serverqueuecore.eeldev.com">ServerQueueCore</a>
     <a class="eel-product-switcher__item" href="https://steamcore-pro.eeldev.com">SteamCore PRO</a>
     <a class="eel-product-switcher__item" href="https://steamcoreweb.eeldev.com">SteamCoreWeb</a>
     <a class="eel-product-switcher__item" href="https://thumbnailer.eeldev.com">Thumbnailer</a>
