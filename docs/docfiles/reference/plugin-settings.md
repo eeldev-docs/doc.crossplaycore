@@ -40,6 +40,13 @@ See [How it works](../getting_started/how-it-works).
 |---|---|---|
 | Voice Input Starts Muted | Off | Join [voice chat](../features/voice-chat) with the microphone muted. |
 
+### Moderation
+
+| Setting | Default | Description |
+|---|---|---|
+| Query Sanctions On Login | On | Fetch the player's active [sanctions](../features/moderation#sanctions) after login. |
+| Lobby Blocking Sanctions | Empty | Sanction actions that keep a player from creating, joining or quick matching, for example `RESTRICT_MATCHMAKING`. |
+
 ### Login
 
 | Setting | Default | Description |

@@ -50,7 +50,8 @@ This graph invites every friend who is playing the game:
 **QueryCrossplayFriendRequests** returns the friend requests the player has received and sent, as
 **Crossplay Friend** with **Relationship** set to **Request Received** or **Request Sent**.
 
-**On Friend Request Received** fires on the subsystem when a new request arrives. Steam only.
+**On Friend Request Received** fires on the subsystem when a new request arrives, from Steam or from EOS for players
+logged in with an Epic account.
 
 EOS only lists requests for products that have that permission in the Developer Portal.
 

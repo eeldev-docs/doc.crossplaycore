@@ -28,6 +28,7 @@ In the [Epic Developer Portal](https://dev.epicgames.com/portal), for your produ
    - **Epic Games**, for [Epic accounts](../features/login#epic-accounts) and the
      [Dev Auth Tool](testing#the-dev-auth-tool).
 3. For Epic accounts, allow the Epic Account Services scopes **Basic Profile**, **Friends List** and **Presence**.
+4. For [reports and sanctions](../features/moderation), allow **Reports** and **Sanctions** in the client policy.
 
 ## With EOSCore (recommended)
 

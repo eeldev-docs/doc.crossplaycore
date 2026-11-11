@@ -18,6 +18,9 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 | Visibility | `Public` | See below. |
 | Bucket | `default` | Searches only find lobbies in the same bucket. Use it for game mode, region or build version. |
 | Attributes | Empty | Typed lobby attributes. See [Attributes](attributes). |
+| Voice Chat | Off | Give the lobby a [voice room](voice-chat). |
+| Allow Join In Progress | On | Let players join while the lobby's match is running. See [Join in progress](#join-in-progress). |
+| Same Platform Only | Off | Only players on the owner's platform can find and join the lobby. See [Same platform only](#same-platform-only). |
 
 ![CreateCrossplayLobby graph](/img/tutorials/02-host-lobby.webp)
 
@@ -36,6 +39,7 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 | Bucket | `default` | The bucket to search in. |
 | Filters | Empty | Typed filters, for example `skill >= 1000`. See [Search filters](attributes#search-filters). |
 | Max Results | `20` | 1 to 200. |
+| Include Unjoinable | Off | Also return lobbies the player can't join right now, for example a lobby list that greys them out. Use **Can Join Lobby** to check each one. |
 
 ![FindCrossplayLobbies and JoinCrossplayLobby graph](/img/tutorials/03-find-and-join.webp)
 
@@ -47,6 +51,58 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 
 A player is in one lobby at a time. **Create** and **Join** fail with **Invalid Parameters** ("Already in a lobby,
 leave it first") while the player is in a lobby. A full lobby gives **Lobby Full**.
+
+**Can Join Lobby** checks a search result before joining: it returns false when the lobby is full, locked by its
+match, closed to the player's platform, or when the player has a [blocking sanction](moderation#sanctions).
+
+## Quick match
+
+**CrossplayQuickMatch** puts the player in a game with one node. It searches with the **Search**, and tries to join
+the fullest lobby that has a free slot. If that join fails, it tries the next one, at most five. When no lobby can be
+joined, it creates one with the **Create Settings**. On success, it returns the lobby the player is in.
+
+Two players who quick match at the same time can each create their own lobby.
+
+The example's Quick match button builds the search and the create settings from the same fields:
+
+![CrossplayQuickMatch graph](/img/docs/quick-match.png)
+
+## Join in progress
+
+A lobby with **Allow Join In Progress** off is locked while its [match](match) is running:
+
+- **FindCrossplayLobbies** doesn't return it, unless **Include Unjoinable** is on.
+- **JoinCrossplayLobby** fails with **Match In Progress**. This also applies to invited players, and to a player whose
+  game crashed and who wants back in.
+
+When the match [ends](match#ending-a-match), the lobby opens again.
+
+The owner can change it at any time with **SetCrossplayJoinInProgress**, for example to close the lobby once the
+round has started. Others get **Not Owner**.
+
+![SetCrossplayJoinInProgress graph](/img/docs/join-in-progress.png)
+
+The check is made by the joining player's game, so a Steam client without CrossplayCore doesn't follow it.
+
+## Same platform only
+
+**Same Platform Only** in the lobby settings limits an EOS lobby to the owner's platform. Players on other platforms
+don't find it, and joining fails with **Platform Not Allowed**. Players logged in with the Dev Auth Tool count as
+Epic players.
+
+### Turning crossplay off
+
+Players can turn crossplay off for themselves, for example with an option in the settings menu:
+
+- **Set Crossplay Matchmaking Enabled** turns it on or off. The choice is saved in `GameUserSettings.ini`, so it is
+  kept between runs.
+- **Is Crossplay Matchmaking Enabled** returns the current choice. It is on by default.
+
+With crossplay off, the player only finds and joins lobbies limited to their own platform, and the lobbies they
+create are limited to their platform, as with **Same Platform Only**. [Steam lobbies](steam-lobbies) only have Steam
+players anyway, so they are not affected.
+
+![Set Crossplay Matchmaking Enabled graph](/img/docs/crossplay-matchmaking.png)
 
 ## Read a lobby without joining
 

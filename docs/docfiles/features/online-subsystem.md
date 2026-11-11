@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: Online Subsystem
 ---
 
@@ -39,6 +39,9 @@ default Online Subsystem. The native service (Steam) is loaded next to it.
 - Player ids are Crossplay ids (the Product User Id, or `Steam:<id>` without one), and they replicate on the
   PlayerState. When the EOS login failed but Steam is running, the player gets the `Steam:<id>` id, so they can still
   join matches.
+- **Allow Join In Progress** in the session settings works as in the engine: the lobby is open until
+  **Start Session**, closed while the session is started, and open again after **End Session**. See
+  [Join in progress](lobbies#join-in-progress).
 - The voice interface is the engine's VoIP, see [Voice chat](voice-chat#matches-engine-voip).
 
 ## Not included yet
