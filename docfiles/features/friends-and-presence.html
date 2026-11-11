@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Friends and presence | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/friends-and-presence"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Friends and presence | CrossplayCore Documentation"><meta data-rh="true" name="description" content="QueryCrossplayFriends"><meta data-rh="true" property="og:description" content="QueryCrossplayFriends"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/friends-and-presence"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/friends-and-presence" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/friends-and-presence" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Friends and presence","item":"https://crossplaycore.eeldev.com/docfiles/features/friends-and-presence"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.dba4ee44.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.49d20ba3.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -55,6 +55,10 @@ played the game with crossplay; invite them with <strong>Show Invite Overlay</st
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="social-actions">Social actions<a href="#social-actions" class="hash-link" aria-label="Direct link to Social actions" title="Direct link to Social actions" translate="no">​</a></h2>
 <p><strong>CrossplaySocialAction</strong> does something with another player, on the platform the local player is logged in with:</p>
 <table><thead><tr><th>Action</th><th>Steam</th><th>Epic account</th></tr></thead><tbody><tr><td><strong>Show Profile</strong></td><td>Opens the profile in the Steam overlay.</td><td>Not Supported</td></tr><tr><td><strong>Add Friend</strong></td><td>Opens the Steam overlay to send the request.</td><td>Sends a friend request.</td></tr><tr><td><strong>Remove Friend</strong></td><td>Opens the Steam overlay to remove the friend.</td><td>Not Supported</td></tr><tr><td><strong>Accept Friend Request</strong></td><td>Opens the Steam overlay to accept.</td><td>Accepts the request.</td></tr><tr><td><strong>Reject Friend Request</strong></td><td>Opens the Steam overlay to reject.</td><td>Rejects the request.</td></tr><tr><td><strong>Block</strong></td><td>Opens the profile, since Steam has no block dialog.</td><td>Opens the Epic block dialog.</td></tr></tbody></table>
+<p>Sending a friend request to a recent player:</p>
+<p><img decoding="async" loading="lazy" alt="CrossplaySocialAction with Add Friend graph" src="/assets/images/add-friend-5b8f57add2f69e7d1e6c4d4e83906ab8.png" width="1480" height="420" class="img_ev3q"></p>
+<p>Accepting and rejecting a friend request in the friends list:</p>
+<p><img decoding="async" loading="lazy" alt="CrossplaySocialAction with Accept and Reject Friend Request graph" src="/assets/images/friend-request-actions-e2a2101f93feb05efa270cfe4d4de9e6.png" width="1620" height="930" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="blocking">Blocking<a href="#blocking" class="hash-link" aria-label="Direct link to Blocking" title="Direct link to Blocking" translate="no">​</a></h2>
 <ul>
 <li class=""><strong>Is User Blocked</strong> returns whether the player has blocked a user.</li>
@@ -65,11 +69,14 @@ players are not passed on.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="avatars">Avatars<a href="#avatars" class="hash-link" aria-label="Direct link to Avatars" title="Direct link to Avatars" translate="no">​</a></h2>
 <p><strong>GetCrossplayAvatar</strong> returns a user&#x27;s avatar as a <strong>Texture 2D</strong> (64 × 64 pixels), for example for an <strong>Image</strong> in
 a friend or member row. Steam only, and only when the local player is on Steam. The EOS SDK has no avatars.</p>
+<p><img decoding="async" loading="lazy" alt="GetCrossplayAvatar graph" src="/assets/images/friend-avatar-30657c011cfa7364b35ccb5aa4e20b89.png" width="1510" height="210" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recent-players">Recent players<a href="#recent-players" class="hash-link" aria-label="Direct link to Recent players" title="Direct link to Recent players" translate="no">​</a></h2>
 <p><strong>Get Recent Players</strong> lists the players the local player has shared a lobby with since the game started, at most
 100. Each <strong>Crossplay Recent Player</strong> has a <strong>User Id</strong>, <strong>Display Name</strong> and <strong>Last Seen</strong>. The list is not saved
 between runs.</p>
 <p>On Steam, the plugin also reports them to Steam, so they show up under <strong>Recent Players</strong> in the Steam friends list.</p>
+<p>The example&#x27;s recent player row shows when the player was last seen, and whether they are blocked:</p>
+<p><img decoding="async" loading="lazy" alt="Break Crossplay Recent Player and Is User Blocked graph" src="/assets/images/recent-player-blocked-9a1ea0963cda522f1a7311bae05bc0a7.png" width="2470" height="300" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolvecrossplayusers">ResolveCrossplayUsers<a href="#resolvecrossplayusers" class="hash-link" aria-label="Direct link to ResolveCrossplayUsers" title="Direct link to ResolveCrossplayUsers" translate="no">​</a></h2>
 <p><strong>ResolveCrossplayUsers</strong> looks up the Product User Id for your own lists of players, for example recent players
 or a clan list. Pass users made with <strong>Make Platform User Id</strong> (a Steam or Epic account id), and it returns them with

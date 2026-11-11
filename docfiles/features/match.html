@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Matches | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/match"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Matches | CrossplayCore Documentation"><meta data-rh="true" name="description" content="A lobby is where players meet. StartCrossplayMatch takes them from the lobby into a networked game: the owner"><meta data-rh="true" property="og:description" content="A lobby is where players meet. StartCrossplayMatch takes them from the lobby into a networked game: the owner"><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/match"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/match" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/match" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Matches","item":"https://crossplaycore.eeldev.com/docfiles/features/match"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.dba4ee44.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.49d20ba3.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -61,6 +61,9 @@ the lobby, so <strong>StartCrossplayMatch</strong> can be called again.</p>
 them to the default map when the host&#x27;s server goes away.</li>
 </ul>
 <p>Only the owner can end the match (<strong>Not Owner</strong>). When the lobby has no match, it fails with <strong>Invalid Parameters</strong>.</p>
+<p>In the example&#x27;s match HUD, the owner ends the match and returns to the menu, and the members open the menu from
+<strong>On Match Ended</strong>:</p>
+<p><img decoding="async" loading="lazy" alt="EndCrossplayMatch and On Match Ended graph" src="/assets/images/end-match-8d2064a1607a598d8c3c5e7d20ba2d87.png" width="880" height="305" class="img_ev3q"></p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="no-ports-no-config">No ports, no config<a href="#no-ports-no-config" class="hash-link" aria-label="Direct link to No ports, no config" title="Direct link to No ports, no config" translate="no">​</a></h2>
 <p>The plugin uses the engine&#x27;s <strong>SocketSubsystemEOS</strong> and switches the game net driver to <code>NetDriverEOS</code> when the match
 starts, so no <code>DefaultEngine.ini</code> changes are needed. Connections go through EOS relays when a direct connection is

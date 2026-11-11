@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.2">
 <title data-rh="true">Lobbies | CrossplayCore Documentation</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://crossplaycore.eeldev.com/docfiles/features/lobbies"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Lobbies | CrossplayCore Documentation"><meta data-rh="true" name="description" content="When crossplay is active, lobbies are EOS lobbies that Steam players, Epic players and Device ID players all share."><meta data-rh="true" property="og:description" content="When crossplay is active, lobbies are EOS lobbies that Steam players, Epic players and Device ID players all share."><link data-rh="true" rel="icon" href="/img/eeldev_icon.png"><link data-rh="true" rel="canonical" href="https://crossplaycore.eeldev.com/docfiles/features/lobbies"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/lobbies" hreflang="en"><link data-rh="true" rel="alternate" href="https://crossplaycore.eeldev.com/docfiles/features/lobbies" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Lobbies","item":"https://crossplaycore.eeldev.com/docfiles/features/lobbies"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="/assets/css/styles.2f516335.css">
-<script src="/assets/js/runtime~main.dba4ee44.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.49d20ba3.js" defer="defer"></script>
 <script src="/assets/js/main.b932b862.js" defer="defer"></script>
 </head>
 <body>
@@ -55,6 +55,12 @@ the lobby the player is in.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="manage-the-lobby">Manage the lobby<a href="#manage-the-lobby" class="hash-link" aria-label="Direct link to Manage the lobby" title="Direct link to Manage the lobby" translate="no">​</a></h2>
 <p>Only the lobby owner can call these. Others get <strong>Not Owner</strong>.</p>
 <table><thead><tr><th>Node</th><th>Description</th></tr></thead><tbody><tr><td><strong>KickCrossplayLobbyMember</strong></td><td>Removes a member from the lobby. The owner can&#x27;t kick themselves; leave the lobby instead.</td></tr><tr><td><strong>PromoteCrossplayLobbyMember</strong></td><td>Makes another member the owner.</td></tr><tr><td><strong>UpdateCrossplayLobbySettings</strong></td><td>Changes <strong>Max Members</strong> and <strong>Visibility</strong>. Max Members can&#x27;t be lower than the number of members. Bucket and Voice Chat can&#x27;t be changed after the lobby is created.</td></tr></tbody></table>
+<p>The example&#x27;s member row kicks the member it shows:</p>
+<p><img decoding="async" loading="lazy" alt="KickCrossplayLobbyMember graph" src="/assets/images/kick-member-519eecde60bf89c8554598da1f3ac188.png" width="2060" height="450" class="img_ev3q"></p>
+<p><strong>PromoteCrossplayLobbyMember</strong> works the same way:</p>
+<p><img decoding="async" loading="lazy" alt="PromoteCrossplayLobbyMember graph" src="/assets/images/promote-member-c0f6470b3a8b925a26740e3ca90837f4.png" width="2220" height="450" class="img_ev3q"></p>
+<p>The lobby settings panel reads Max Members from a text box and Visibility from a combo box:</p>
+<p><img decoding="async" loading="lazy" alt="UpdateCrossplayLobbySettings graph" src="/assets/images/update-lobby-settings-c30681ef55de15e0bb427908eff96197.png" width="1400" height="340" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="kicked-players">Kicked players<a href="#kicked-players" class="hash-link" aria-label="Direct link to Kicked players" title="Direct link to Kicked players" translate="no">​</a></h3>
 <p>The kicked player gets <strong>On Kicked From Lobby</strong> and then <strong>On Lobby Left</strong>. The others get <strong>On Lobby Member Left</strong>.</p>
 <p>A kicked player can&#x27;t join the lobby again until the owner sends them a new invite with <strong>SendCrossplayInvite</strong>.</p>
@@ -68,6 +74,7 @@ leaves by itself. A Steam client without CrossplayCore doesn&#x27;t do this.</li
 <strong>On Lobby Chat Message</strong> with the <strong>Lobby Id</strong>, the sender as a <strong>Crossplay Lobby Member</strong>, and the message.
 Messages are at most 256 characters; longer ones are cut. Messages from <a class="" href="/docfiles/features/friends-and-presence#blocking">blocked players</a>
 are not passed on.</p>
+<p><img decoding="async" loading="lazy" alt="SendCrossplayLobbyChatMessage and On Lobby Chat Message graph" src="/assets/images/lobby-chat-1f187541695ad9f2f2a68b2b1fff51d7.png" width="1130" height="360" class="img_ev3q"></p>
 <ul>
 <li class=""><strong>Steam lobbies</strong> use Steam&#x27;s lobby chat.</li>
 <li class=""><strong>EOS lobbies</strong> have no chat in EOS, so the message is sent as a member attribute. That is enough for lobby chat,
