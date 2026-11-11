@@ -24,6 +24,15 @@ This works for Invite Only lobbies too.
   exists. Old ones are rejected. The sender of such an invite is the lobby owner.
 - Joining a lobby removes the invites to it.
 
+### Pending invites
+
+**Get Pending Invites** lists the invites the player has received but not joined or rejected. Each
+**Crossplay Invite** has the **Lobby Id** and **From**, the sender. Use it to build an invite list in your UI, with
+**GetCrossplayLobby** for details about each lobby.
+
+**Reject Invite** with the **Lobby Id** removes an invite. For EOS invites it also rejects the invite in EOS. It
+returns false when there is no such invite.
+
 ### Inviting by Steam or Epic account
 
 **SendCrossplayInvite** also accepts a user with only a Steam or Epic account id, made with

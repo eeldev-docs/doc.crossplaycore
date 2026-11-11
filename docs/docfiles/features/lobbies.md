@@ -48,6 +48,43 @@ Without EOS they are [Steam lobbies](steam-lobbies). The nodes are the same.
 A player is in one lobby at a time. **Create** and **Join** fail with **Invalid Parameters** ("Already in a lobby,
 leave it first") while the player is in a lobby. A full lobby gives **Lobby Full**.
 
+## Read a lobby without joining
+
+**GetCrossplayLobby** reads a lobby by **Lobby Id** without joining it, for example to show an invite with the lobby's
+name, mode and number of players. It returns the lobby's settings and attributes. **Members** is only filled in for
+the lobby the player is in.
+
+## Manage the lobby
+
+Only the lobby owner can call these. Others get **Not Owner**.
+
+| Node | Description |
+|---|---|
+| **KickCrossplayLobbyMember** | Removes a member from the lobby. The owner can't kick themselves; leave the lobby instead. |
+| **PromoteCrossplayLobbyMember** | Makes another member the owner. |
+| **UpdateCrossplayLobbySettings** | Changes **Max Members** and **Visibility**. Max Members can't be lower than the number of members. Bucket and Voice Chat can't be changed after the lobby is created. |
+
+### Kicked players
+
+The kicked player gets **On Kicked From Lobby** and then **On Lobby Left**. The others get **On Lobby Member Left**.
+
+A kicked player can't join the lobby again until the owner sends them a new invite with **SendCrossplayInvite**.
+
+- **EOS lobbies** remove the member on the EOS side.
+- **Steam lobbies** have no kick. The owner writes the kicked player in the lobby data, and the kicked player's game
+  leaves by itself. A Steam client without CrossplayCore doesn't do this.
+
+## Lobby chat
+
+**SendCrossplayLobbyChatMessage** sends a text message to everyone in the lobby. The members get
+**On Lobby Chat Message** with the **Lobby Id**, the sender as a **Crossplay Lobby Member**, and the message.
+Messages are at most 256 characters; longer ones are cut. Messages from [blocked players](friends-and-presence#blocking)
+are not passed on.
+
+- **Steam lobbies** use Steam's lobby chat.
+- **EOS lobbies** have no chat in EOS, so the message is sent as a member attribute. That is enough for lobby chat,
+  but not for fast chat: EOS limits how often a lobby can be updated.
+
 ## The current lobby
 
 | Node | Description |
@@ -71,6 +108,8 @@ Bind these on the **Crossplay Subsystem**:
 | **On Lobby Member Joined** | A member joined. Fires once the member's display name has arrived, at most 5 seconds after the join. |
 | **On Lobby Member Left** | A member left or was kicked. |
 | **On Lobby Left** | The player is no longer in the lobby: they left, were kicked or the lobby was closed. |
+| **On Kicked From Lobby** | The owner kicked the player. **On Lobby Left** follows. |
+| **On Lobby Chat Message** | A member sent a [chat message](#lobby-chat). |
 
 A member who leaves before **On Lobby Member Joined** fired gives neither event.
 

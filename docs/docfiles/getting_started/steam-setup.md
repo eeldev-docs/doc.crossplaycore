@@ -98,8 +98,8 @@ with it. The first time a Steam account logs in, the plugin creates a Product Us
 :::caution
 The Steam identity provider must be set up for the same Steam App ID the game runs with. EOS rejects tickets from
 another app, such as Spacewar (480), and the log shows
-`Login failed: EOS Connect login: EOS_Connect_ExternalTokenValidationFailed`. The player then stays on Steam only,
-see [When the EOS login fails](../features/login#when-the-eos-login-fails).
+`EOS_Connect_ExternalTokenValidationFailed`. The player then logs in with a Device ID instead, or stays on Steam
+only when **Allow Device Id Login** is off. See [When the EOS login fails](../features/login#when-the-eos-login-fails).
 :::
 
 ## Steam P2P matches

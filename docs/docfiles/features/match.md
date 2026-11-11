@@ -38,6 +38,18 @@ the lobby has no match.
 Players who join the lobby after the match has started travel to it as well (or get **On Match Starting** when Auto
 Join Match is off).
 
+## Ending a match
+
+The lobby owner calls **EndCrossplayMatch** to end the match and keep the lobby. The match address is removed from
+the lobby, so **StartCrossplayMatch** can be called again.
+
+- **Return Map:** the map the owner travels to. Empty means the owner stays where they are.
+- Everyone in the lobby gets **On Match Ended** with the **Lobby Id**.
+- The members don't travel by themselves. Open your lobby map from **On Match Ended**; otherwise the engine takes
+  them to the default map when the host's server goes away.
+
+Only the owner can end the match (**Not Owner**). When the lobby has no match, it fails with **Invalid Parameters**.
+
 ## No ports, no config
 
 The plugin uses the engine's **SocketSubsystemEOS** and switches the game net driver to `NetDriverEOS` when the match

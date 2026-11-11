@@ -45,7 +45,7 @@ See [How it works](../getting_started/how-it-works).
 | Setting | Default | Description |
 |---|---|---|
 | Epic Account Login | `Launcher Only` | When players log in with their Epic account: `Never`, `Launcher Only` or `Always`. See [Epic accounts](../features/login#epic-accounts). |
-| Allow Device Id Login | On | Log in to EOS anonymously when Steam is not running. |
+| Allow Device Id Login | On | Log in to EOS anonymously when Steam is not running, or when EOS rejects the Steam login (for example Spacewar, 480). See [Device ID](../features/login#device-id). |
 | Device Id Display Name | Empty | The display name for Device ID logins. Empty uses the computer's name. |
 
 ### Login | Dev Auth

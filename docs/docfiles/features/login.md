@@ -29,8 +29,13 @@ If none applies, the login fails with **Not Supported**.
 
 ## When the EOS login fails
 
-When Steam is running but the EOS login fails, for example because the Steam App ID is not set up in the Steam
-identity provider, **Crossplay Login** returns the error and the status is **Logged Out**. The player keeps their
+When Steam is running but EOS rejects the Steam login, for example with Spacewar (480) or when the Steam App ID is
+not set up in the Steam identity provider, the plugin logs in with a [Device ID](#device-id) instead, as long as
+**Allow Device Id Login** is on (the default). The player keeps their Steam name and gets a working crossplay login,
+as a Device ID player. The log shows
+`The crossplay service rejected the platform login (...), logging in with a Device Id`.
+
+With **Allow Device Id Login** off, **Crossplay Login** returns the error and the status is **Logged Out**. The player keeps their
 Steam user (**Get Local User** has their Steam id), and what only needs Steam keeps working:
 
 - [Steam lobbies](steam-lobbies), Steam invites and join requests,
@@ -85,7 +90,8 @@ client policy or turn the scope off here.
 
 ## Device ID
 
-Without Steam, **Allow Device Id Login** (on by default) logs in to EOS anonymously. The display name is
+Without Steam, or when EOS rejects the Steam login, **Allow Device Id Login** (on by default) logs in to EOS
+anonymously. The display name is
 **Device Id Display Name**, or the computer's name when that is empty.
 
 A device id belongs to the computer, so every game on one computer gets the same Product User Id. Use the
@@ -96,4 +102,4 @@ A device id belongs to the computer, so every game on one computer gets the same
 EOS Connect logins expire. The plugin renews the login by itself before it does, from Steam or from the Epic session.
 If EOS logs the player out, the status goes to **Logged Out** and **On Login Status Changed** fires.
 
-Call **Logout** from C++ (`UCrossplaySubsystem::Logout`) to log out yourself.
+Call **Crossplay Logout** on the subsystem to log out yourself, for example before logging in with another account.
