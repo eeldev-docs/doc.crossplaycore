@@ -50,6 +50,11 @@ the lobby, so **StartCrossplayMatch** can be called again.
 
 Only the owner can end the match (**Not Owner**). When the lobby has no match, it fails with **Invalid Parameters**.
 
+In the example's match HUD, the owner ends the match and returns to the menu, and the members open the menu from
+**On Match Ended**:
+
+![EndCrossplayMatch and On Match Ended graph](/img/docs/end-match.png)
+
 ## No ports, no config
 
 The plugin uses the engine's **SocketSubsystemEOS** and switches the game net driver to `NetDriverEOS` when the match

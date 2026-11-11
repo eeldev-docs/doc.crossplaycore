@@ -64,6 +64,18 @@ Only the lobby owner can call these. Others get **Not Owner**.
 | **PromoteCrossplayLobbyMember** | Makes another member the owner. |
 | **UpdateCrossplayLobbySettings** | Changes **Max Members** and **Visibility**. Max Members can't be lower than the number of members. Bucket and Voice Chat can't be changed after the lobby is created. |
 
+The example's member row kicks the member it shows:
+
+![KickCrossplayLobbyMember graph](/img/docs/kick-member.png)
+
+**PromoteCrossplayLobbyMember** works the same way:
+
+![PromoteCrossplayLobbyMember graph](/img/docs/promote-member.png)
+
+The lobby settings panel reads Max Members from a text box and Visibility from a combo box:
+
+![UpdateCrossplayLobbySettings graph](/img/docs/update-lobby-settings.png)
+
 ### Kicked players
 
 The kicked player gets **On Kicked From Lobby** and then **On Lobby Left**. The others get **On Lobby Member Left**.
@@ -80,6 +92,8 @@ A kicked player can't join the lobby again until the owner sends them a new invi
 **On Lobby Chat Message** with the **Lobby Id**, the sender as a **Crossplay Lobby Member**, and the message.
 Messages are at most 256 characters; longer ones are cut. Messages from [blocked players](friends-and-presence#blocking)
 are not passed on.
+
+![SendCrossplayLobbyChatMessage and On Lobby Chat Message graph](/img/docs/lobby-chat.png)
 
 - **Steam lobbies** use Steam's lobby chat.
 - **EOS lobbies** have no chat in EOS, so the message is sent as a member attribute. That is enough for lobby chat,

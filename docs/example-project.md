@@ -7,6 +7,12 @@ sidebar_position: 2
 The example project shows CrossplayCore in Blueprint: login, crossplay lobbies, search filters, ready checks,
 invites, friends, voice chat, matches over EOS P2P and host migration.
 
+![The example's Find lobbies tab, with Create a lobby, Quick match, Friends and Recent players](/img/example/find-lobbies.png)
+
+![The example's lobby tab, with members, lobby chat, lobby settings, voice chat and invites](/img/example/your-lobby.png)
+
+The graphs on the feature pages come from this project.
+
 ## Playable build
 Try the example without opening the editor. Download the packaged Windows build (about 320 MB), unzip it and run
 `CrossplayExample.exe`:

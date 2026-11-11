@@ -67,6 +67,14 @@ EOS only lists requests for products that have that permission in the Developer 
 | **Reject Friend Request** | Opens the Steam overlay to reject. | Rejects the request. |
 | **Block** | Opens the profile, since Steam has no block dialog. | Opens the Epic block dialog. |
 
+Sending a friend request to a recent player:
+
+![CrossplaySocialAction with Add Friend graph](/img/docs/add-friend.png)
+
+Accepting and rejecting a friend request in the friends list:
+
+![CrossplaySocialAction with Accept and Reject Friend Request graph](/img/docs/friend-request-actions.png)
+
 ## Blocking
 
 - **Is User Blocked** returns whether the player has blocked a user.
@@ -80,6 +88,8 @@ players are not passed on.
 **GetCrossplayAvatar** returns a user's avatar as a **Texture 2D** (64 × 64 pixels), for example for an **Image** in
 a friend or member row. Steam only, and only when the local player is on Steam. The EOS SDK has no avatars.
 
+![GetCrossplayAvatar graph](/img/docs/friend-avatar.png)
+
 ## Recent players
 
 **Get Recent Players** lists the players the local player has shared a lobby with since the game started, at most
@@ -87,6 +97,10 @@ a friend or member row. Steam only, and only when the local player is on Steam. 
 between runs.
 
 On Steam, the plugin also reports them to Steam, so they show up under **Recent Players** in the Steam friends list.
+
+The example's recent player row shows when the player was last seen, and whether they are blocked:
+
+![Break Crossplay Recent Player and Is User Blocked graph](/img/docs/recent-player-blocked.png)
 
 ## ResolveCrossplayUsers
 
