@@ -77,12 +77,14 @@ are filled in. The scope and lobby settings still apply.
 | Setting | Default | Description |
 |---|---|---|
 | Create Platform If Missing | On | Create the EOS platform when no other plugin has created one. |
+| Use Launcher Deployment | On | Use the sandbox and deployment the Epic Games launcher passes on the command line, when the game is started from it. Players started from Steam or a standalone build keep the ids above. Needs **Create Platform If Missing**. |
 | Product Id | Empty | From the Epic Developer Portal. |
 | Sandbox Id | Empty | From the Epic Developer Portal. |
 | Deployment Id | Empty | From the Epic Developer Portal. |
 | Client Id | Empty | From the Epic Developer Portal. |
 | Client Secret | Empty | From the Epic Developer Portal. |
 | Request Friends Scope | On | Ask for the player's Epic friends at Epic login. Needs the Friends permission in the client policy. See [Scopes](../features/login#scopes). |
+| Epic Account From Steam | Never | Log players started from Steam in to the Epic account linked to their Steam account. See [Players started from Steam](../features/login#players-started-from-steam). |
 | Request Presence Scope | On | Ask for the player's Epic presence at Epic login. Needs the Online Presence permission in the client policy. |
 | Lobby Presence | On | Tie EOS lobbies to the player's Epic presence, so Epic friends can join from the social overlay. Only for players logged in with an Epic account. |
 | Enable Voice Chat | On | Create the EOS platform with voice for [lobby voice chat](../features/voice-chat#eos-lobbies). |

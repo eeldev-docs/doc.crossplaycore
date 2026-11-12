@@ -75,6 +75,19 @@ A player logged in with an Epic account gets their **Epic** friends and presence
 The Developer Portal needs **Epic Games** as an identity provider for EOS Connect, and the client policy must allow
 the scopes **Basic Profile**, **Friends List** and **Presence**. See [EOS setup](../getting_started/eos-setup).
 
+### Players started from Steam
+
+With **Epic Account From Steam** set, players started from Steam are logged in to the Epic account linked to their
+Steam account. The setting is under **Project Settings → Plugins → Crossplay - Epic Online Services → Epic Account**:
+
+- **Never** (default): Steam players have no Epic account.
+- **If Linked**: players whose Steam account is linked to an Epic account are logged in to it. Nobody is asked to link.
+- **Ask To Link**: like If Linked, and players whose accounts are not linked are shown the Epic account portal to link
+  them. Players who cancel keep playing with Steam only, and are asked again next start.
+
+The Epic login then gives the same crossplay player, Epic friends, presence and Epic overlay as the launcher. It needs
+Steam as an identity provider for Epic Account Services in the Developer Portal.
+
 ### Scopes
 
 A game that does not use Epic friends or Epic presence can turn off **Request Friends Scope** or
@@ -102,4 +115,5 @@ A device id belongs to the computer, so every game on one computer gets the same
 EOS Connect logins expire. The plugin renews the login by itself before it does, from Steam or from the Epic session.
 If EOS logs the player out, the status goes to **Logged Out** and **On Login Status Changed** fires.
 
-Call **Crossplay Logout** on the subsystem to log out yourself, for example before logging in with another account.
+Call **Crossplay Logout** on the subsystem to log out yourself, for example before logging in with another account. A logout also cancels a login or a lobby request that is still in progress, and
+that call returns **Canceled**.

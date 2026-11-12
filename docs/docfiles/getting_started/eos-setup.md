@@ -102,6 +102,7 @@ Open **Project Settings → Plugins → Crossplay - Epic Online Services** and f
 | Setting | Description |
 |---|---|
 | Create Platform If Missing | Create the EOS platform when no other plugin has created one. On by default. |
+| Use Launcher Deployment | Use the sandbox and deployment the Epic Games launcher passes, when the game is started from it. On by default. |
 | Product Id | From the Developer Portal. |
 | Sandbox Id | From the Developer Portal. |
 | Deployment Id | From the Developer Portal. |

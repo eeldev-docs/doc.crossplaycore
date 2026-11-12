@@ -168,6 +168,9 @@ A **Crossplay Lobby** has a **Lobby Id**, **Owner**, **Max Members**, **Num Memb
 (true for EOS lobbies), **Attributes**, **Members** and **Match Address** (set once a [match](match) has started).
 Each member has a **User Id**, **Display Name** and **Attributes**.
 
+**Required Platform** is set on a lobby that is limited to one platform, by **Same Platform Only** or when the owner has
+[crossplay turned off](#turning-crossplay-off). It holds that platform, and is Unknown otherwise.
+
 ## Events
 
 Bind these on the **Crossplay Subsystem**:

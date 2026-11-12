@@ -109,3 +109,13 @@ The example's recent player row shows when the player was last seen, and whether
 or a clan list. Pass users made with **Make Platform User Id** (a Steam or Epic account id), and it returns them with
 **Product User Id** filled in for those who have logged in to the game with crossplay. Requires crossplay to be
 active.
+
+## Events
+
+Bind these on the **Crossplay Subsystem**:
+
+| Event | When |
+|---|---|
+| **On Friend Updated** | A friend's name, presence or relationship changed. |
+| **On Friend Removed** | A friend was removed. Gives the **User Id** of the removed friend. |
+| **On Friend Request Received** | A new friend request arrived, from Steam or from EOS for players logged in with an Epic account. |

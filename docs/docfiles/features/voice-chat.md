@@ -66,6 +66,7 @@ match voice still works. See [When the EOS login fails](login#when-the-eos-login
 - **SetCrossplayVoiceMemberMuted** and **SetCrossplayVoiceMemberVolume** only change what the local player
   hears. Volumes are scales: 1 is unchanged, 0 is silent, 2 is twice as loud.
 - An empty device id is the system default.
+- **Is Voice Input Muted** returns the microphone state, so a UI can show it.
 
 ## Events
 
