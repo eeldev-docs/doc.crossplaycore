@@ -29,6 +29,12 @@ New to the plugin? Start with [Installing the plugin](docfiles/getting_started/i
 [Quick Start](docfiles/getting_started/quick-start).
 :::
 
+## Demo video
+
+<iframe style={{width: '100%', aspectRatio: '16 / 9'}} src="https://www.youtube.com/embed/Trp_0DGjJxs" title="CrossplayCore demo" frameBorder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+
+[Watch on YouTube](https://www.youtube.com/watch?v=Trp_0DGjJxs)
+
 ## Features
 
 | Feature | Description |
