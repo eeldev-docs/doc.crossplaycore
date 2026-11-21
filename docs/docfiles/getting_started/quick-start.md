@@ -73,4 +73,4 @@ See [Invites and join requests](../features/invites).
 
 ## Next step
 
-Read [How it works](how-it-works), then [test with several players](testing).
+[Test with several players](testing).

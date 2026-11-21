@@ -60,8 +60,7 @@ A game runs two backends at the same time:
 | **Epic Online Services** (service) | The crossplay layer | Product User Id, lobbies every platform shares, in-game invites |
 
 The **Crossplay Subsystem** (a Game Instance subsystem) logs in to both and sends each call to the backend that
-serves it: lobbies go to EOS when crossplay is active, the friends list and achievements go to Steam. See
-[How it works](docfiles/getting_started/how-it-works).
+serves it: lobbies go to EOS when crossplay is active, the friends list and achievements go to Steam.
 
 ## Supported engine versions
 

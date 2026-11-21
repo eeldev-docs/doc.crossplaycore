@@ -18,8 +18,6 @@ Saved under `[/Script/CrossplayCore.CrossplaySettings]`.
 | Platform Backend Class | `CrossplayBackend_Steam` | The platform backend: who the player is, friends, overlay, achievements. |
 | Service Backend Class | `CrossplayBackend_EOS` | The crossplay service: Product User Id and shared lobbies. |
 
-See [How it works](../getting_started/how-it-works).
-
 ### Lobbies
 
 | Setting | Default | Description |
