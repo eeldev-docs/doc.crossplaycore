@@ -37,7 +37,7 @@ GameInstance if you need it.
 
 Call **StartIfEveryoneIsReady** when the host presses Start. After checking ownership, the graph sets **All Members Ready** from **Num Members > 0**. At the first member whose **ready** value is false, it clears the flag and breaks out of the loop. The **Completed** pin checks the flag before calling **StartCrossplayMatch**.
 
-![StartIfEveryoneIsReady checks lobby ownership and each member's ready attribute before starting the match.](/img/docs/start-if-everyone-is-ready.png)
+![StartIfEveryoneIsReady checks lobby ownership and each member's ready attribute before starting the match.](../../../static/img/docs/start-if-everyone-is-ready.png)
 
 ## Things to try
 
