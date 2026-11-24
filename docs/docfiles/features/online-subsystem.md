@@ -44,7 +44,6 @@ default Online Subsystem. The native service (Steam) is loaded next to it.
   [Join in progress](lobbies#join-in-progress).
 - The voice interface is the engine's VoIP, see [Voice chat](voice-chat#matches-engine-voip).
 
-## Not included yet
+## Other interfaces
 
-Friends, presence, achievements and more than one session are not part of the Online Subsystem yet. Use the
-Crossplay nodes for them.
+Crossplay also exposes friends, presence, achievements, stats and leaderboards through the Online Subsystem. Sessions share the current lobby, so only one session can be active. Leaderboard reads return up to 100 entries. Reads for specific players and ranks filter the top 100, and Around User centers on the local player. See [Progression](progression) for the corresponding Blueprint workflows.

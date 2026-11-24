@@ -32,6 +32,10 @@ Saved under `[/Script/CrossplayCore.CrossplaySettings]`.
 | Auto Join Match | On | Members travel to the owner by themselves when the [match](../features/match) starts. Turn off to call **Join Match** yourself. |
 | Accept Other Platforms In Match | On | Let players with ids from another Online Subsystem into a match hosted from a crossplay lobby. The engine otherwise rejects them with `incompatible_unique_net_id`. |
 
+### Stats
+
+**Stats Service** defaults to **Auto**, which prefers the active crossplay service and falls back to the platform. **Crossplay** and **Platform Only** select a single backend. **Both** writes stats and leaderboard scores to each available backend and reads from the preferred one as in Auto. See [Progression](../features/progression) for partial failures.
+
 ### Voice
 
 | Setting | Default | Description |
@@ -42,6 +46,7 @@ Saved under `[/Script/CrossplayCore.CrossplaySettings]`.
 
 | Setting | Default | Description |
 |---|---|---|
+| Block Lobby Requests When Sanctions Unknown | Off | Reject lobby requests when the active crossplay login check cannot determine sanctions and blocking actions are configured. |
 | Query Sanctions On Login | On | Fetch the player's active [sanctions](../features/moderation#sanctions) after login. |
 | Lobby Blocking Sanctions | Empty | Sanction actions that keep a player from creating, joining or quick matching, for example `RESTRICT_MATCHMAKING`. |
 

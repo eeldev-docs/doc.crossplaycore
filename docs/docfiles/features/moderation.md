@@ -45,7 +45,7 @@ With **Query Sanctions On Login** on (the default), the plugin fetches the playe
 List the sanction actions that should keep a player out of lobbies in **Lobby Blocking Sanctions**, under
 **Project Settings → Plugins → Crossplay → Moderation**, for example `RESTRICT_MATCHMAKING`. A player with an active
 sanction in that list can't create, join or quick match: the nodes fail with **Sanctioned**, and the message says
-until when. The sanctions are fetched after login, so a player can create a lobby before the answer arrives.
+until when. With blocking actions configured, Create, Join and Quick Match wait up to five seconds for the login sanction query. If the result is still unknown, requests proceed by default. Enable **Block Lobby Requests When Sanctions Unknown** to reject them with **Sanctioned** while crossplay and the login check are active. Show the error message so players can distinguish an unavailable check from an active restriction.
 
 ### Other players
 

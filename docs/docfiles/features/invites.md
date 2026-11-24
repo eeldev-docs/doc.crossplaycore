@@ -75,7 +75,17 @@ current lobby and joins the new one. If the join fails, for example because the 
 Failed** fires with the reason.
 
 Turn off **Project Settings → Plugins → Crossplay → Lobbies → Auto Accept Join Requests** to call
-**JoinCrossplayLobby** yourself from **On Join Requested**.
+handle **On Join Requested** in your GameInstance. Save the requested Lobby Id before showing a confirmation dialog.
+
+![ListenForLobbyInvites binds On Join Requested, saves the Lobby Id in Requested Lobby Id and prints a confirmation prompt.](/img/docs/listen-for-lobby-invites.png)
+
+In your menu, show the confirmation dialog where the graph calls **Print String**. Call **ConfirmLobbySwitch** when the player confirms.
+
+1. If the requested ID matches your current lobby, dismiss the dialog. Cancel keeps the current lobby.
+2. On confirmation, call **LeaveCrossplayLobby** if already in a lobby. Continue from **On Success**. On failure, show the error and stop.
+3. Call **JoinCrossplayLobby** with the saved ID. Open the lobby screen on success. If the target filled up or closed after you left, show the error and return to the lobby browser.
+
+![ConfirmLobbySwitch compares the current and requested lobby IDs. If they differ, it joins directly or waits for LeaveCrossplayLobby to succeed before joining. Both failure paths print the error message.](/img/docs/confirm-lobby-switch.png)
 
 ## Starting the game from an invite
 
