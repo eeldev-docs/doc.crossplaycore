@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>CrossplayCore Changelog</title>
+        <link>https://crossplaycore.eeldev.com/changelog</link>
+        <description>Release notes for CrossplayCore</description>
+        <lastBuildDate>Thu, 26 Nov 2026 22:09:30 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[CrossplayCore 1.2.0]]></title>
+            <link>https://crossplaycore.eeldev.com/changelog/1-2-0</link>
+            <guid>https://crossplaycore.eeldev.com/changelog/1-2-0</guid>
+            <pubDate>Thu, 26 Nov 2026 22:09:30 GMT</pubDate>
+            <description><![CDATA[CHANGED]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changed">CHANGED<a href="https://crossplaycore.eeldev.com/changelog/1-2-0#changed" class="hash-link" aria-label="Direct link to CHANGED" title="Direct link to CHANGED" translate="no">​</a></h2>
+<ul>
+<li class="">Enabled Online Subsystem Steam and Steam Sockets as plugin dependencies on Windows, Linux, and macOS.</li>
+<li class="">Lobby update operations now report failures returned by Steam or Epic Online Services (EOS) to the caller.</li>
+<li class="">Added a Crossplay Blueprint example to the sample project.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed">FIXED<a href="https://crossplaycore.eeldev.com/changelog/1-2-0#fixed" class="hash-link" aria-label="Direct link to FIXED" title="Direct link to FIXED" translate="no">​</a></h2>
+<ul>
+<li class="">Fixed a race condition when destroying a session while a create, join, or update operation was still in progress. Session destruction now waits for the active operation to finish.</li>
+<li class="">Fixed pending login retries continuing after logout.</li>
+<li class="">Improved how Steam and EOS callbacks handle login, lobby membership, and session state changes.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CrossplayCore 1.1.0]]></title>
+            <link>https://crossplaycore.eeldev.com/changelog/1-1-0</link>
+            <guid>https://crossplaycore.eeldev.com/changelog/1-1-0</guid>
+            <pubDate>Thu, 26 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[ADDED]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="added">ADDED<a href="https://crossplaycore.eeldev.com/changelog/1-1-0#added" class="hash-link" aria-label="Direct link to ADDED" title="Direct link to ADDED" translate="no">​</a></h2>
+<ul>
+<li class="">Added stats, leaderboards, and achievement progress APIs for Steam and EOS, available through Blueprint and the Crossplay Online Subsystem.</li>
+<li class="">Added Quick Match, which looks for a lobby to join and creates one if no suitable lobby is available.</li>
+<li class="">Added platform restrictions for lobbies and an option to prevent players from joining a match in progress.</li>
+<li class="">Added lobby management and social APIs for updating lobby settings, kicking players, sending lobby chat messages, ending matches, and accessing avatars and recent players.</li>
+<li class="">Added EOS player reports, sanctions checks, and friend requests. Configured sanctions can block lobby creation, joining, and Quick Match.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed">FIXED<a href="https://crossplaycore.eeldev.com/changelog/1-1-0#fixed" class="hash-link" aria-label="Direct link to FIXED" title="Direct link to FIXED" translate="no">​</a></h2>
+<ul>
+<li class="">Fixed an issue where two players using Quick Match at the same time could create separate lobbies and remain split.</li>
+<li class="">Lobby creation, joining, and Quick Match now wait for the initial EOS sanctions check when lobby-blocking sanctions are configured.</li>
+<li class="">Successful lobby settings updates are now reflected immediately in the current lobby.</li>
+<li class="">Logging out now cancels pending login and lobby requests while preserving EOS logins managed by other plugins.</li>
+</ul>]]></content:encoded>
+        </item>
+    </channel>
+</rss>

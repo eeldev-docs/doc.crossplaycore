@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc_crossplaycore=self.webpackChunkdoc_crossplaycore||[]).push([[1903],{1912:s=>{s.exports=JSON.parse('{"blogBasePath":"/changelog","blogTitle":"CrossplayCore Changelog","authorsListPath":"/changelog/authors"}')}}]);

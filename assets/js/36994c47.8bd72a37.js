@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc_crossplaycore=self.webpackChunkdoc_crossplaycore||[]).push([[9858],{5516:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"default"}')}}]);
