@@ -37,7 +37,20 @@ const config = {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
         },
-        blog: false,
+        blog: {
+          path: 'changelog',
+          routeBasePath: 'changelog',
+          blogTitle: 'CrossplayCore Changelog',
+          blogDescription: 'Release notes for CrossplayCore',
+          blogSidebarTitle: 'Recent releases',
+          showReadingTime: false,
+          onUntruncatedBlogPosts: 'ignore',
+          feedOptions: {
+            type: 'rss',
+            title: 'CrossplayCore Changelog',
+            description: 'Release notes for CrossplayCore',
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
