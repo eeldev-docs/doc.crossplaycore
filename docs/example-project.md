@@ -16,7 +16,7 @@ The graphs on the feature pages come from this project.
 ## Playable build
 Try the example without opening the editor. Download the packaged Windows build (about 320 MB), unzip it and run
 `CrossplayExample.exe`:
-- [Download Playable Example (Windows)](https://eeldev.com/tmp/CrossplayExample_Packaged_1.0.zip)
+- [Download Playable Example (Windows)](https://drive.google.com/drive/folders/1fvyc-3mabd9MW3HQNk6WBN7nT8sConh-?usp=sharing)
 
 ## Blueprint Example Project
 You can download the project from GitHub:
