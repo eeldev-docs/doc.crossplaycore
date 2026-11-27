@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc_crossplaycore=self.webpackChunkdoc_crossplaycore||[]).push([[5832],{9990:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/changelog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Release notes for CrossplayCore","blogTitle":"CrossplayCore Changelog"}}')}}]);

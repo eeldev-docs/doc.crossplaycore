@@ -13,8 +13,12 @@
             <link>https://crossplaycore.eeldev.com/changelog/1-2-0</link>
             <guid>https://crossplaycore.eeldev.com/changelog/1-2-0</guid>
             <pubDate>Thu, 26 Nov 2026 22:09:30 GMT</pubDate>
-            <description><![CDATA[CHANGED]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changed">CHANGED<a href="https://crossplaycore.eeldev.com/changelog/1-2-0#changed" class="hash-link" aria-label="Direct link to CHANGED" title="Direct link to CHANGED" translate="no">​</a></h2>
+            <description><![CDATA[ADDED]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="added">ADDED<a href="https://crossplaycore.eeldev.com/changelog/1-2-0#added" class="hash-link" aria-label="Direct link to ADDED" title="Direct link to ADDED" translate="no">​</a></h2>
+<ul>
+<li class="">Added the <strong>Block Lobby Requests When Sanctions Unknown</strong> setting, which rejects lobby requests when the login sanctions check cannot determine the player's sanctions.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="changed">CHANGED<a href="https://crossplaycore.eeldev.com/changelog/1-2-0#changed" class="hash-link" aria-label="Direct link to CHANGED" title="Direct link to CHANGED" translate="no">​</a></h2>
 <ul>
 <li class="">Enabled Online Subsystem Steam and Steam Sockets as plugin dependencies on Windows, Linux, and macOS.</li>
 <li class="">Lobby update operations now report failures returned by Steam or Epic Online Services (EOS) to the caller.</li>
@@ -25,6 +29,10 @@
 <li class="">Fixed a race condition when destroying a session while a create, join, or update operation was still in progress. Session destruction now waits for the active operation to finish.</li>
 <li class="">Fixed pending login retries continuing after logout.</li>
 <li class="">Improved how Steam and EOS callbacks handle login, lobby membership, and session state changes.</li>
+<li class="">Fixed the same player's crossplay user IDs comparing as different when only one of them had a Product User Id.</li>
+<li class="">Fixed <strong>Is Lobby Owner</strong> returning true for a lobby without a valid owner.</li>
+<li class="">Fixed Crossplay Online Subsystem user IDs not converting correctly to and from bytes.</li>
+<li class="">Presence queries for known friends now return the cached presence immediately.</li>
 </ul>]]></content:encoded>
         </item>
         <item>
@@ -47,6 +55,44 @@
 <li class="">Lobby creation, joining, and Quick Match now wait for the initial EOS sanctions check when lobby-blocking sanctions are configured.</li>
 <li class="">Successful lobby settings updates are now reflected immediately in the current lobby.</li>
 <li class="">Logging out now cancels pending login and lobby requests while preserving EOS logins managed by other plugins.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[CrossplayCore 1.0.0]]></title>
+            <link>https://crossplaycore.eeldev.com/changelog/1-0-0</link>
+            <guid>https://crossplaycore.eeldev.com/changelog/1-0-0</guid>
+            <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[First release of CrossplayCore.]]></description>
+            <content:encoded><![CDATA[<p>First release of CrossplayCore.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="added">ADDED<a href="https://crossplaycore.eeldev.com/changelog/1-0-0#added" class="hash-link" aria-label="Direct link to ADDED" title="Direct link to ADDED" translate="no">​</a></h2>
+<ul>
+<li class="">Added the CrossplayCore module with Steam and Epic Online Services (EOS) backends and Blueprint nodes for login, lobbies, friends, invites, presence, and matches.</li>
+<li class="">Added login with Steam through EOS Connect, Epic account login (Never, Launcher Only, or Always), optional Steam-to-Epic account linking with a Steam-only fallback, and Dev Auth Tool login for testing several players in PIE.</li>
+<li class="">Added typed lobby and member attributes with search filters for EOS and Steam lobbies.</li>
+<li class="">Added Steam lobbies, used when the lobby service is Platform Only or EOS is not available.</li>
+<li class="">Added match start over EOS P2P and Steam P2P, with lobby members traveling to the owner's match address.</li>
+<li class="">Added lobby invites, offline invites, Steam game invites, and joining from the Steam overlay, accepted EOS invites, or the <code>+crossplay_lobby</code> and <code>+connect_lobby</code> launch arguments. Pending joins are kept until login completes.</li>
+<li class="">Added the Epic friends overlay for lobby invites, with the Steam invite dialog as a fallback.</li>
+<li class="">Added Epic and Steam friends with Product User Id lookup, presence and rich presence text, and friend update and removal events.</li>
+<li class="">Added EOS lobby voice chat with Blueprint controls for muting, volume, and audio devices, and Online Subsystem voice chat for matches when lobby voice is unavailable.</li>
+<li class="">Added EOS achievement unlocking.</li>
+<li class="">Added the Crossplay Online Subsystem (<code>CROSSPLAY</code>) with Identity, Sessions, Friends, Presence, and Achievements, so the built-in session Blueprint nodes work on top of CrossplayCore.</li>
+<li class="">Added a host migration adapter for HostMigrationCore.</li>
+<li class="">Added support for the EOSCore and SteamCore PRO platforms and networking, including SteamCoreSockets.</li>
+<li class="">Added an option to use the EOS sandbox and deployment IDs supplied by the Epic Games launcher.</li>
+<li class="">Added configurable EOS friends and presence scopes.</li>
+<li class="">Added a setting that allows players whose net IDs come from another Online Subsystem to join crossplay matches.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="fixed">FIXED<a href="https://crossplaycore.eeldev.com/changelog/1-0-0#fixed" class="hash-link" aria-label="Direct link to FIXED" title="Direct link to FIXED" translate="no">​</a></h2>
+<ul>
+<li class="">Fixed <code>OnLobbyMemberJoined</code> firing before the member's display name had arrived.</li>
+<li class="">Fixed Steam lobby joining by dispatching Steam callbacks to the game thread and keeping the platform user ID when the crossplay login fails.</li>
+<li class="">Steam lobby joins are now accepted when the Steam user is available, even if the EOS login fails.</li>
+<li class="">Lobbies and matches now recover after a process was killed and left its EOS lobby membership behind. Create and Join are refused while another lobby request is running.</li>
+<li class="">Host migration now detects a host that left the lobby, ignores host announcements from an earlier process, and no longer joins a match address that points at the local player.</li>
+<li class="">The current lobby is left when the subsystem shuts down.</li>
+<li class="">The game net driver is restored after a match, and a surviving EOS socket subsystem is registered again after shutdown.</li>
+<li class="">EOS APIs that need newer engine or EOS SDK versions are now guarded so the plugin builds on older versions.</li>
 </ul>]]></content:encoded>
         </item>
     </channel>
